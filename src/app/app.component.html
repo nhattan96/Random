@@ -1,0 +1,8 @@
+<input type="file" 
+(change)="onFileSelect($event.target)" name="myfile">
+
+<button *ngIf="!isRandom" (click)="getData()">Get random number</button>
+<p>{{randomNum}}</p>
+<br>
+
+<button *ngIf="isRandom" (click)="stop()">Stop</button>
