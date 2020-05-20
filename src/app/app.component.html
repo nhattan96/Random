@@ -1,8 +1,35 @@
-<input type="file" 
-(change)="onFileSelect($event.target)" name="myfile">
+<h1 class="text-center">Random Number</h1>
 
-<button *ngIf="!isRandom" (click)="getData()">Get random number</button>
-<p>{{randomNum}}</p>
-<br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <button mat-raised-button class="" (click)="file.click()">Select File</button>
 
-<button *ngIf="isRandom" (click)="stop()">Stop</button>
+      <input [hidden]="true" accept="typeUpload.import_receivers" type="file" (change)="onFileSelect($event.target)"
+        #file>
+    </div>
+  </div>
+
+  <div class="row mt-3 text-center big-font-size">
+    <div class="col-md-12 text-center text-bg-color">
+      <p class="random-number">{{randomNum}}</p>
+    </div>
+  </div>
+
+  <div class="row mt-3 text-center">
+    <div class="col-md-12">
+      <div *ngIf="isAlreadyHaveItem">
+        <button class="big-button " color="warn" mat-raised-button *ngIf="!isRandom" (click)="getData()">Random</button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="row text-center">
+    <div class="col-md-12">
+      <button class="big-button" color="warn" mat-raised-button *ngIf="isRandom" (click)="stop()">Stop</button>
+    </div>
+  </div>
+
+</div>
